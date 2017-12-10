@@ -96,9 +96,30 @@ var numberArray2 = [-1, 40, 23, -16];
 getAbsSum(numberArray2);
 
 
+//Edabit Problem:
+//
+//IPv4 Validation
+//
+// Create a function that takes a string (IPv4 address in standard dot-decimal format) and returns true of the Ip is valid and false if it is not.
+function isValidIP(str) {
+  if(str.includes(' ')){
+    return false;
+  } else {
+    var octetArray = str.split('.');
+    var result = octetArray.filter(function(x) {
+      console.log(x[0]);
+      return x >= 0 && x <= 255 && x[0] !== 0;
+    });
+    console.log(result);
+    if(result.length === 4){
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
 
-
-
+console.log(isValidIP('19.255 .0.126'));
 
 
 
