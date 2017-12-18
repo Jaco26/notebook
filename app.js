@@ -101,34 +101,152 @@ getAbsSum(numberArray2);
 //IPv4 Validation
 //
 // Create a function that takes a string (IPv4 address in standard dot-decimal format) and returns true of the Ip is valid and false if it is not.
-function isValidIP(str) {
-  if(str.includes(' ')){
-    return false;
-  } else {
-    var octetArray = str.split('.');
-    var result = octetArray.filter(function(x) {
-      console.log(x[0]);
-      return x >= 0 && x <= 255 && x[0] !== 0;
-    });
-    console.log(result);
-    if(result.length === 4){
-      return true;
-    } else {
-      return false;
+
+function isValidIP(str){
+  var array = str.split('.');
+  var valid = [];
+  var notValid = [];
+  for (var i = 0; i < array.length; i++){
+    if (array[i][0] === '0' && array[i].length > 1){
+      notValid.push(array[i]);
+    } else if (array[i].includes('e')){
+      notValid.push(array[i]);
+    }
+    else if (array[i] <= 255 && array[i] >= 0 && array[i].includes(' ') === false){
+      valid.push(array[i]);
     }
   }
+  return valid.length === 4;
+}
+/*
+function isValidIP(str){
+  var array = str.split('.');
+  console.log(array);
+  var filtered = array.filter(function(x){
+    return x <= 255 && x >= 0 && x.includes(' ') === false;
+  });
+  var result = [];
+  for(var i = 0; i < filtered.length; i++){
+    if(filtered[i][0] === '0' && filtered[i].length > 1)
+    result.push(filtered[i]);
+  }
+  console.log(result);
+  console.log(filtered);
+  console.log(filtered.length === 4);
 }
 
-console.log(isValidIP('19.255 .0.126'));
+isValidIP2('19.255.200.0');
+
+function isValidIP2(str){
+  var array = str.split('.');
+  var valid = [];
+  var notValid = [];
+  for (var i = 0; i < array.length; i++){
+    if (array[i][0] === '0' && array[i].length > 1){
+      notValid.push(array[i]);
+    } else if (array[i].includes('e')){
+      notValid.push(array[i]);
+    }
+    else if (array[i] <= 255 && array[i] >= 0 && array[i].includes(' ') === false){
+      valid.push(array[i]);
+    }
+  }
+  console.log(valid.length === 4);
+}
+*/
+
+
+
+// Edabit Problem:
+//
+//Reverse The Order Of A string
+//
+//Create a function that takes a string as its argument and returns the string in reversed order.
+function reverse(str) {
+  var stringToArray = str.split('');
+  var reversedArray = stringToArray.reverse();
+  return reversedArray.join('');
+}
+
+// console.log(reverse('Hello'));
+
+
+
+
+// Edabit Problem:
+//
+// Purge and Organize
+//
+// Given an array of numbers, write a function that returns an array that:
+// 1: Has all duplicate elements removed
+// 2: Is sorted from least value to greatest value
+function uniqueSort(arr) {
+  var sorted = arr.sort(function(a,b){
+    return a - b;
+  });
+  var newArray = [];
+  for(var i = 0; i < sorted.length; i++){
+    if(newArray.includes(sorted[i])===false){
+      newArray.push(sorted[i]);
+    }
+  }
+  return newArray;
+}
+
+console.log(uniqueSort([9,5,29,6,7,12,55,3,55,55,55,90]));
+
+
+
+// Edabit Problem
+//
+// Find The LARGEST Number In An array
+//
+// Create a function that takes an array of numbers and returns the largest number in the array
+function findLargestNum(arr){
+  var sorted = arr.sort(function(a,b){
+    return a - b;
+  });
+  for(i = 0; i < sorted.length; i++){
+    var answer = sorted[i];
+  }
+  console.log(answer);
+}
+
+findLargestNum([9,3,5,'a',110]);
+
+
+
+var klein = [1, 4, 7, 23, 95, 223, 12, 8];
+
+function sum(arr){
+  var result = klein.sort(function(a,b){
+    return a - b;
+  });
+  return result[0];
+}
+
+
+console.log(sum(klein));
 
 
 
 
 
+// How would you store your favorite foods in an array? If a restaurant's menu was also in an array, could you write a function that would check if the restaurant had some of your favorite foods?
 
+function menuCheck(arr1, arr2){
+  var matches = [];
+  for(var i = 0; i < arr1.length; i++){
+    for(var j = 0; j < arr2.length; j++){
+      if( arr1[i] === arr2[j] ){
+        matches.push(arr1[i]);
+      }
+    }
+  }
+  console.log(matches);
+}
 
-
-
+menuCheck(klein, numberArray2);
 
 
 
