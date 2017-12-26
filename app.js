@@ -1,4 +1,4 @@
-
+/*
 //Edabit Problem:
 //
 //Capitalize The First Letter Of Each Word
@@ -19,7 +19,7 @@ function makeTitle(str) {
 
 var output = document.querySelector('#problem1');
 document.body.appendChild(output);
-output.textContent = makeTitle('We like LADy');
+output.textContent = makeTitle('the LYNhall HaS a snootY vibe');
 
 
 //Edabit Problem:
@@ -90,7 +90,7 @@ function getAbsSum(arr){
   console.log(absoluteValues);
 }
 
-var numberArray = [-1];
+//var numberArray = [-1];
 var numberArray2 = [-1, 40, 23, -16];
 
 getAbsSum(numberArray2);
@@ -153,7 +153,7 @@ function isValidIP2(str){
   }
   console.log(valid.length === 4);
 }
-*/
+
 
 
 
@@ -230,23 +230,193 @@ console.log(sum(klein));
 
 
 
-
+*/
 
 // How would you store your favorite foods in an array? If a restaurant's menu was also in an array, could you write a function that would check if the restaurant had some of your favorite foods?
 
-function menuCheck(arr1, arr2){
+function menuCheck(myFavFoodsArray, restaurantMenuArray){
   var matches = [];
-  for(var i = 0; i < arr1.length; i++){
-    for(var j = 0; j < arr2.length; j++){
-      if( arr1[i] === arr2[j] ){
-        matches.push(arr1[i]);
+  for(var i = 0; i < myFavFoodsArray.length; i++){
+    for(var j = 0; j < restaurantMenuArray.length; j++){
+      if( myFavFoodsArray[i] === restaurantMenuArray[j] ){
+        matches.push(myFavFoodsArray[i]);
       }
     }
   }
   console.log(matches);
 }
 
-menuCheck(klein, numberArray2);
+var wordArray1 = ['every', 'day', 'when', 'body', 'you\'re', 'walking', 'down', 'the', 'street'];
+var wordArray2 = ['every', 'body', 'that', 'day', 'you', 'meet'];
+
+menuCheck(wordArray1, wordArray2);
+
+/*
+
+// Edabit Problem
+//
+// Return The Sum Of The Two Smallest Numbers
+//
+// Create a function that takes an array of numbers and returns the sum of the two lowest poistive integers. No floats or empty arrays will be used in any of the test cases.
+function sumTwoSmallestNums(arr) {
+  var sorted = arr.sort(function(a,b){
+    return a - b;
+  });
+  var isPosInt = sorted.filter(function(x){
+    return x >= 0;
+  });
+  var sliced = isPosInt.slice(0,2);
+  return sliced.reduce(function(a,b){
+    return a + b;
+  });
+}
+
+console.log(sumTwoSmallestNums(numberArray2));
+
+*/
+
+
+// Edabit Problem
+//
+// Is It A Valid RGB(A) Color?
+//
+// Given an rgb(a) CSS color as a string, determine whether its format is valid or not. Return true if valid, false if not.
+function validColor (color) {
+  if(color.startsWith('rgb') || color.startsWith('rgba')){
+    var split = color.split(',');
+    var itemBox = [];
+    if(split[0].startsWith('rgba') || split[0].startsWith('rgb')){
+      var one = split[0].split('(');
+      itemBox.push(one[1]);
+      itemBox.push(split[1]);
+      itemBox.push(split[2].split(')')[0]);
+      }
+      if(split.length === 4){
+      itemBox.push(split[3].split(')')[0]);
+    }
+    var valid = [];
+    for (var i = 0; i < 3; i++) {
+      if(itemBox[i] >= 0 && itemBox[i] <= 255){
+        valid.push(itemBox[i]);
+      }
+    }
+    if(itemBox[3] < 1 && itemBox[3] > 0){
+      valid.push(itemBox[3]);
+    }
+    if(valid.length === 3 && split[0].startsWith('rgb')){
+      return true;
+    } else if (split.length === 4 && split[0].startsWith('rgba')){
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+
+console.log( validColor( 'rgb(234,210,255)' ) );
+console.log( validColor( 'rgba(244,210,202,0.3)' ) );
+
+
+
+
+
+// Edabit Problem
+//
+// Maskify The String
+//
+// Create a function that takes a string, transforms all but the last four characters into '#' and returns the new masked string.
+function maskify(str) {
+
+}
+
+
+
+
+// Edabit Problem
+//
+// Remove The Surrounding Duplicate Items
+//
+// Create a function that takes a sequence of either strings or numbers, removes the surrounding duplicates and returns an array of items without any items with the same value next to each other and preserves the original order of items.
+function uniqueInOrder(sequence) {
+  // check to see if sequence is a 'string'
+  if(typeof sequence === 'string'){
+    // if it is, create an array store it in the variable 'splitString'. Each character should have its own index value.
+    var splitString = sequence.split('');
+    // Create an empty array to store the non-repeated-adjacent-item version
+    var noRepeat = [];
+    // create for loop to test for each index if it matches the one immediately before it.  If it doesn't, push it to the noRepeat array.
+    for(i = 0; i < splitString.length; i++){
+      if(splitString[i]===splitString[i-1]){
+        continue;
+      } else {
+        noRepeat.push(splitString[i]);
+      }
+    }
+    // Return noRepeat, which holds version of the sequence without adjacent repeats
+    return noRepeat;
+  }
+  // if the sequence is an object (array) instead of a string, run this code instead...
+  else if (typeof sequence === 'object'){
+  // create for loop to test for each index if it matches the one immediately before it.  If it doesn't, push it to the goodKind array.
+    var goodKind = [];
+    for(i = 0; i < sequence.length; i++){
+      if(sequence[i] === sequence[i-1]){
+        continue;
+      } else {
+        goodKind.push(sequence[i]);
+      }
+    }
+    return goodKind;
+  }
+}
+
+/*
+var test1 = "AAAABBBCCDAABBB";
+var test2 = "ABBCcAD";
+var test3 = [1, 2, 2, 3, 3];
+var test4 = "12333355555522211133";
+var test5 = "uuUfffFgGggYtt76%5$$$";
+var test6 = [1, 1, 1, "A", "B", "B"];
+
+console.log(uniqueInOrder(test1));
+uniqueInOrder(test2);
+uniqueInOrder(test3);
+console.log(uniqueInOrder(test4));
+uniqueInOrder(test5);
+console.log(uniqueInOrder(test6));
+*/
+
+ /////////////////////////////////////////////////////////////
+//////Two Brilliant Solutions from other Users////////////////
+ ///////////////////////////////////////////////////////////
+
+/*
+function uniqueInOrder(sequence) {
+  return Array.from(sequence).filter((x,i,a) => x !== a[i-1]);
+}
+
+
+function uniqueInOrder(sequence) {
+  var arr = Array.isArray(sequence) ? sequence : sequence.split('');
+  return arr.filter(function(val, index){
+    return arr[index - 1] !== val;
+  });
+}
+*/
+
+
+
+
+
+// Edabit Problem
+//
+//
+//
+//
+
+
+
+
 
 
 

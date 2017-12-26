@@ -1,0 +1,52 @@
+
+
+.game {
+  height: 600px;
+  width: 900px;
+  min-width: 900px;
+  background-color: rgba(115,200,115,.99);
+}
+
+.your-side {
+  height: 600px;
+}
+
+.cpu-side {
+  height: 600px;
+}
+
+.dice {
+  width: 50px;
+  height: 50px;
+  background-color: beige;
+  border-radius: 3px;
+  margin-left: 5px;
+}
+
+.coin {
+  width: 15px;
+  margin: 3px;
+  border-radius: 50px;
+}
+
+.your-coins {
+  width: 130px;
+  height: 600px;
+  background-color: rgb(27, 0, 83);
+  margin-top: 5px;
+}
+
+.cpu-coins {
+  width: 130px;
+  height: 600px;
+  background-color: rgb(83, 0, 27);
+}
+
+.bet-info {
+  height: 100px;
+  width: 100px;
+  background-color: rgba(0, 190, 59, 0.2);
+  position: relative;
+  top: 300px;
+  left: -100px;
+}

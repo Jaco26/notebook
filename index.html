@@ -3,18 +3,55 @@
   <head>
     <meta charset="utf-8">
     <title>Edabit Problems</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" type="text/css">
   </head>
   <body>
 
-    <input type="text" id="capsFirstLetter" />
-    <label for="capsFirstLetter">Type a sentence here.</label>
-    <button type="button" name="button">submit</button>
-    <p id="problem1"></p>
 
-    <p id="problem2"></p>
+    <div class="container mt-1">
+    <!--  <h1>Edabit Problem Test Zone</h1>
+      <p>but the zone is really in the console...</p>
+-->
+      <div class="row game">
+
+          <div class="your-side col-6 d-flex">
+            <div class="your-coins col-4 align-self-end"></div> <!-- close .your-coins -->
+            <div class="h-dice col-4 d-flex mr-1 p-1 align-self-end"></div> <!-- close .h-dice -->
+          </div> <!-- close .your-side -->
 
 
-    <script src="app.js"></script>
+
+          <div class="cpu-side col-6 d-flex">
+            <div class="col-4 game-info">
+              <p class="h-bet">your bet: </p>
+              <p class="cpu-bet">cpu bet: </p>
+              <p class="wins">Wins: </p>
+              <p class="losses">Losses: </p>
+              <p class="ties">Ties: </p>
+              <p class="games">Games: </p>
+            </div>
+            <div class="c-dice col-4 d-flex pb-1 pr-2 justify-content-end align-self-end"></div> <!-- close c-dice -->
+            <div class="cpu-coins col-4 align-self-end"></div> <!-- close .cpu-coins -->
+          </div> <!-- close .cpu-side -->
+
+      </div> <!-- close .row .game -->
+
+      <div class="row controls">
+          <input type="button" class="btn btn-info bet-1 m-2" value="Bet 1">
+          <input type="button" class="btn btn-info bet-5 m-2" value="Bet 5">
+          <input type="button" class="btn btn-info bet-10 m-2" value="Bet 10">
+          <input type="button" class="lock-bet btn btn-danger m-2 ml-5" value="Lock in bet">
+          <input type="button" class="roll-the-dice btn btn-primary m-2" value="Roll the dice!">
+      </div> <!-- close .controls -->
+
+    </div> <!-- close .container -->
+
+
+
+
+    <script src="second-attempt.js"></script>
+
 
   </body>
 </html>
