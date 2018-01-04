@@ -249,6 +249,74 @@ console.log(trouble(12345, 12345));
 
 
 
+// Code Wars Puzzle
+//
+// Take two strings including only letters from 'a' to 'z'. Return a new sorted string, the longest possible, containing distinct letters;
+//  - Each taken only once coming from s1 or s2
+
+function longest(s1, s2) {
+  var array = s1.split('').concat(s2.split('')).sort();
+  var result = [];
+  for(var i = 0; i < array.length; i++){
+    if(array[i] !== array[i-1]){
+      result.push(array[i]);
+    }
+  }
+  return result.join('');
+}
+console.log(longest("inmanylanguages", "theresapairoffunctions"));
+
+
+
+
+// Edabit Puzzle
+//
+// Find Repeating
+//
+// Create a function that accepts a string and groups repeated values.
+// The groups should have the following struncture:
+//    [[value_0, start_0, end_0, length_0]]
+// example: 'aabbb' ––> [['a', 0, 1, 2], ['b', 2, 4, 3]]
+function findRepeating(str) {
+  var string = str.split('');
+  var groupedArrays = [];
+  var itemsArray = [0,0,0,0];
+  for(var i = 0; i < string.length; i++){
+    itemsArray[0] = string[i];
+    itemsArray[1] = string;
+  }
+
+  return itemsArray;
+}
+
+console.log(findRepeating(''));
+console.log(findRepeating('a'));
+console.log(findRepeating('1337'));
+console.log(findRepeating('aabbb'));
+console.log(findRepeating('aabbbaabbb'));
+
+
+
+// Edabit Puzzle
+//
+// Return the Objects Keys and Values
+//
+// Create a function that takes an object and returns the keys and vales as seperate arrays.
+function keysAndValues(obj) {
+  var keys = Object.keys(obj).map(function(key){
+    return obj[key];
+  });
+}
+
+console.log(keysAndValues({a: 1, b: 2, c: 3}));
+
+
+
+
+
+
+
+
 
 
 
